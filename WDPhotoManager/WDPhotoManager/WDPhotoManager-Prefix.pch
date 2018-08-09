@@ -1,0 +1,15 @@
+//
+//  WDPhotoManager-Prefix.pch
+//  WDPhotoManager
+//
+//  Created by wudi on 2018/8/9.
+//  Copyright © 2018 wudi. All rights reserved.
+//
+
+#ifndef WDPhotoManager_Prefix_pch
+#define WDPhotoManager_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* WDPhotoManager_Prefix_pch */
