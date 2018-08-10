@@ -15,6 +15,7 @@
 #import "UIView+Layout.h"
 #import "TZImageManager.h"
 #import <sys/utsname.h>
+#import "UINavigationController+Extention.h"
 
 @interface TZImagePickerController () {
     NSTimer *_timer;
@@ -51,8 +52,6 @@
     [super viewDidLoad];
     self.needShowStatusBar = ![UIApplication sharedApplication].statusBarHidden;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationBar.translucent = YES;
     [TZImageManager manager].shouldFixOrientation = NO;
 
     // Default appearance, you can reset these after this method
@@ -60,12 +59,11 @@
     self.oKButtonTitleColorNormal   = [UIColor colorWithRed:(83/255.0) green:(179/255.0) blue:(17/255.0) alpha:1.0];
     self.oKButtonTitleColorDisabled = [UIColor colorWithRed:(83/255.0) green:(179/255.0) blue:(17/255.0) alpha:0.5];
     
-    if (iOS7Later) {
-        self.navigationBar.barTintColor = [UIColor colorWithRed:(34/255.0) green:(34/255.0)  blue:(34/255.0) alpha:1.0];
-        self.navigationBar.tintColor = [UIColor whiteColor];
-        self.automaticallyAdjustsScrollViewInsets = NO;
-        if (self.needShowStatusBar) [UIApplication sharedApplication].statusBarHidden = NO;
-    }
+
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (self.needShowStatusBar) [UIApplication sharedApplication].statusBarHidden = NO;
+    
 }
 
 - (void)setNaviBgColor:(UIColor *)naviBgColor {
@@ -266,16 +264,15 @@
     self.timeout = 15;
     self.photoWidth = 828.0;
     self.photoPreviewMaxWidth = 600;
-    self.naviTitleColor = [UIColor whiteColor];
-    self.naviTitleFont = [UIFont systemFontOfSize:17];
+
     self.barItemTextFont = [UIFont systemFontOfSize:15];
-    self.barItemTextColor = [UIColor whiteColor];
+    self.barItemTextColor = CTColorHex(0x333333);
     self.allowPreview = YES;
     self.notScaleImage = NO;
-    self.statusBarStyle = UIStatusBarStyleLightContent;
+    self.statusBarStyle = UIStatusBarStyleDefault;
     self.cannotSelectLayerColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
     self.allowCameraLocation = YES;
-    
+    [self.navigationController setBackgroundImage:CTColorHex(0xe9eaeb)];
     self.iconThemeColor = [UIColor colorWithRed:31 / 255.0 green:185 / 255.0 blue:34 / 255.0 alpha:1.0];
     [self configDefaultBtnTitle];
     

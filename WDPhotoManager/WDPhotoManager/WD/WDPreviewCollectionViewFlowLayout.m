@@ -9,9 +9,7 @@
 #import "WDPreviewCollectionViewFlowLayout.h"
 #import "WDDefine.h"
 
-//#define WDPreviewCollectionViewFlowLayoutWidth 80
-//#define WDPreviewCollectionViewFlowLayoutHeight 80
-#define WDPreviewCollectionViewFlowLayoutLineSpacing 5
+#define WDPreviewCollectionViewFlowLayoutLineSpacing 15
 #define WDPreviewCollectionViewFlowLayoutInteritemSpacing 5
 
 @implementation WDPreviewCollectionViewFlowLayout
@@ -23,6 +21,7 @@
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
         self.minimumLineSpacing = WDPreviewCollectionViewFlowLayoutLineSpacing;
         self.minimumInteritemSpacing = WDPreviewCollectionViewFlowLayoutInteritemSpacing;
+        self.sectionInset = UIEdgeInsetsMake(0, WDPreviewCollectionViewFlowLayoutLineSpacing, 0, WDPreviewCollectionViewFlowLayoutLineSpacing);
     }
     return self;
 }

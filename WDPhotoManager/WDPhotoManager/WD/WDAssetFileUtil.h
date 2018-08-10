@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)saveAsset:(PHAsset *)asset filePath:(NSString *)filePath completion:(void (^)(NSError *))completion;
 
++ (void)saveAssets:(NSArray <PHAsset *> *)assets completion:(void (^)(NSError *))completion;
+
 + (void)loadAssetWithFilePath:(NSString *)filePath completion:(void (^)(NSData *))completion;
 @end
 

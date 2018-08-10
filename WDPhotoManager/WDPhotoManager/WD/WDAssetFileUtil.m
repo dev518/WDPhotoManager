@@ -95,6 +95,18 @@ typedef void (^Result)(NSData *data,NSString *fileName);
 //    }];
 //}
 
++ (void)saveAssets:(NSArray <PHAsset *> *)assets completion:(void (^)(NSError *))completion{
+    __block NSError *haserror = nil;
+    for (PHAsset *asset in assets) {
+        [WDAssetFileUtil saveAsset:asset filePath:[WDAssetFileUtil pathForAsset:asset] completion:^(NSError * error) {
+            if (!haserror && error) {
+                haserror = error;
+            }
+        }];
+    }
+    completion(haserror);
+}
+
 
 + (void)saveAsset:(PHAsset *)asset filePath:(NSString *)filePath completion:(void (^)(NSError *))completion{
     BOOL isVideo = asset.mediaType == PHAssetMediaTypeVideo || asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive;
@@ -136,7 +148,6 @@ typedef void (^Result)(NSData *data,NSString *fileName);
             completion(nil);
         }];
     }
-    
 }
 
 + (void)loadAssetWithFilePath:(NSString *)filePath completion:(void (^)(NSData *))completion{

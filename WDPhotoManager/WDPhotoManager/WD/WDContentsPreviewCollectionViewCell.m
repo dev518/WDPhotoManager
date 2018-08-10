@@ -17,6 +17,7 @@
 
 @implementation WDContentsPreviewCollectionViewCell
 
+
 - (void)setData:(NSString *)filePath{
     UIImage *img = [UIImage imageWithContentsOfFile:filePath];
     [self.preImgView setImage:img];
@@ -31,7 +32,9 @@
         _preImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
         _preImgView.contentMode = UIViewContentModeScaleAspectFill;
         _preImgView.layer.masksToBounds = YES;
+        _preImgView.backgroundColor = CTColorHex(0x82d8c8);
         [self addSubview:_preImgView];
+
     }
     return _preImgView;
 }

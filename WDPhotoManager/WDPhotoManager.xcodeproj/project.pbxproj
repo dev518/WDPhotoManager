@@ -36,6 +36,7 @@
 		9C4ABE4F211C45810092AE18 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE3F211C45800092AE18 /* TZImagePickerController.m */; };
 		9C4ABE50211C45810092AE18 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE40211C45800092AE18 /* TZLocationManager.m */; };
 		9C4ABE51211C45810092AE18 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */; };
+		9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		9C4ABE40211C45800092AE18 /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
 		9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
 		9C4ABE42211C45800092AE18 /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
+		9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extention.h"; sourceTree = "<group>"; };
+		9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extention.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,19 +154,21 @@
 		9C4ABE08211C410A0092AE18 /* WD */ = {
 			isa = PBXGroup;
 			children = (
-				9C4ABE09211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.h */,
+				9C4ABE14211C410A0092AE18 /* WDAssetFileUtil.h */,
+				9C4ABE0E211C410A0092AE18 /* WDAssetFileUtil.m */,
+				9C4ABE0C211C410A0092AE18 /* WDContensFilesCollectionViewController.h */,
+				9C4ABE11211C410A0092AE18 /* WDContensFilesCollectionViewController.m */,
+				9C4ABE13211C410A0092AE18 /* WDContenstsFileTableViewController.h */,
 				9C4ABE0A211C410A0092AE18 /* WDContenstsFileTableViewController.m */,
 				9C4ABE0B211C410A0092AE18 /* WDContentsPreviewCollectionViewCell.h */,
-				9C4ABE0C211C410A0092AE18 /* WDContensFilesCollectionViewController.h */,
-				9C4ABE0D211C410A0092AE18 /* WDDefine.h */,
-				9C4ABE0E211C410A0092AE18 /* WDAssetFileUtil.m */,
-				9C4ABE0F211C410A0092AE18 /* WDPasswordView.m */,
-				9C4ABE10211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.m */,
-				9C4ABE11211C410A0092AE18 /* WDContensFilesCollectionViewController.m */,
 				9C4ABE12211C410A0092AE18 /* WDContentsPreviewCollectionViewCell.m */,
-				9C4ABE13211C410A0092AE18 /* WDContenstsFileTableViewController.h */,
-				9C4ABE14211C410A0092AE18 /* WDAssetFileUtil.h */,
+				9C4ABE0D211C410A0092AE18 /* WDDefine.h */,
 				9C4ABE15211C410A0092AE18 /* WDPasswordView.h */,
+				9C4ABE0F211C410A0092AE18 /* WDPasswordView.m */,
+				9C4ABE09211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.h */,
+				9C4ABE10211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.m */,
+				9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */,
+				9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */,
 			);
 			path = WD;
 			sourceTree = "<group>";
@@ -180,36 +185,36 @@
 		9C4ABE24211C45800092AE18 /* TZImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
-				9C4ABE25211C45800092AE18 /* TZPhotoPreviewCell.h */,
-				9C4ABE26211C45800092AE18 /* TZPhotoPickerController.h */,
+				9C4ABE3A211C45800092AE18 /* NSBundle+TZImagePicker.h */,
+				9C4ABE2C211C45800092AE18 /* NSBundle+TZImagePicker.m */,
+				9C4ABE35211C45800092AE18 /* TZAssetCell.h */,
+				9C4ABE29211C45800092AE18 /* TZAssetCell.m */,
+				9C4ABE3B211C45800092AE18 /* TZAssetModel.h */,
+				9C4ABE2B211C45800092AE18 /* TZAssetModel.m */,
+				9C4ABE33211C45800092AE18 /* TZGifPhotoPreviewController.h */,
+				9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */,
+				9C4ABE37211C45800092AE18 /* TZImageCropManager.h */,
 				9C4ABE27211C45800092AE18 /* TZImageCropManager.m */,
 				9C4ABE28211C45800092AE18 /* TZImageManager.h */,
-				9C4ABE29211C45800092AE18 /* TZAssetCell.m */,
-				9C4ABE2A211C45800092AE18 /* TZVideoPlayerController.m */,
-				9C4ABE2B211C45800092AE18 /* TZAssetModel.m */,
-				9C4ABE2C211C45800092AE18 /* NSBundle+TZImagePicker.m */,
-				9C4ABE2D211C45800092AE18 /* TZLocationManager.h */,
-				9C4ABE2E211C45800092AE18 /* TZImagePickerController.h */,
-				9C4ABE2F211C45800092AE18 /* UIView+Layout.m */,
-				9C4ABE30211C45800092AE18 /* TZPhotoPreviewController.m */,
-				9C4ABE31211C45800092AE18 /* TZImagePickerController.bundle */,
-				9C4ABE32211C45800092AE18 /* TZProgressView.m */,
-				9C4ABE33211C45800092AE18 /* TZGifPhotoPreviewController.h */,
-				9C4ABE34211C45800092AE18 /* TZImagePickerController-Prefix.pch */,
-				9C4ABE35211C45800092AE18 /* TZAssetCell.h */,
 				9C4ABE36211C45800092AE18 /* TZImageManager.m */,
-				9C4ABE37211C45800092AE18 /* TZImageCropManager.h */,
-				9C4ABE38211C45800092AE18 /* TZPhotoPickerController.m */,
-				9C4ABE39211C45800092AE18 /* TZPhotoPreviewCell.m */,
-				9C4ABE3A211C45800092AE18 /* NSBundle+TZImagePicker.h */,
-				9C4ABE3B211C45800092AE18 /* TZAssetModel.h */,
-				9C4ABE3C211C45800092AE18 /* TZVideoPlayerController.h */,
-				9C4ABE3D211C45800092AE18 /* TZPhotoPreviewController.h */,
-				9C4ABE3E211C45800092AE18 /* UIView+Layout.h */,
+				9C4ABE34211C45800092AE18 /* TZImagePickerController-Prefix.pch */,
+				9C4ABE31211C45800092AE18 /* TZImagePickerController.bundle */,
+				9C4ABE2E211C45800092AE18 /* TZImagePickerController.h */,
 				9C4ABE3F211C45800092AE18 /* TZImagePickerController.m */,
+				9C4ABE2D211C45800092AE18 /* TZLocationManager.h */,
 				9C4ABE40211C45800092AE18 /* TZLocationManager.m */,
-				9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */,
+				9C4ABE26211C45800092AE18 /* TZPhotoPickerController.h */,
+				9C4ABE38211C45800092AE18 /* TZPhotoPickerController.m */,
+				9C4ABE25211C45800092AE18 /* TZPhotoPreviewCell.h */,
+				9C4ABE39211C45800092AE18 /* TZPhotoPreviewCell.m */,
+				9C4ABE3D211C45800092AE18 /* TZPhotoPreviewController.h */,
+				9C4ABE30211C45800092AE18 /* TZPhotoPreviewController.m */,
 				9C4ABE42211C45800092AE18 /* TZProgressView.h */,
+				9C4ABE32211C45800092AE18 /* TZProgressView.m */,
+				9C4ABE3C211C45800092AE18 /* TZVideoPlayerController.h */,
+				9C4ABE2A211C45800092AE18 /* TZVideoPlayerController.m */,
+				9C4ABE3E211C45800092AE18 /* UIView+Layout.h */,
+				9C4ABE2F211C45800092AE18 /* UIView+Layout.m */,
 			);
 			path = TZImagePickerController;
 			sourceTree = "<group>";
@@ -255,6 +260,11 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"zh-Hans",
+				ja,
+				es,
+				pl,
 			);
 			mainGroup = 9C4ABDE6211C3EF60092AE18;
 			productRefGroup = 9C4ABDF0211C3EF60092AE18 /* Products */;
@@ -299,6 +309,7 @@
 				9C4ABE4F211C45810092AE18 /* TZImagePickerController.m in Sources */,
 				9C4ABE16211C410A0092AE18 /* WDContenstsFileTableViewController.m in Sources */,
 				9C4ABE48211C45810092AE18 /* UIView+Layout.m in Sources */,
+				9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */,
 				9C4ABE47211C45810092AE18 /* NSBundle+TZImagePicker.m in Sources */,
 				9C4ABE4E211C45810092AE18 /* TZPhotoPreviewCell.m in Sources */,
 				9C4ABE45211C45810092AE18 /* TZVideoPlayerController.m in Sources */,
@@ -455,6 +466,7 @@
 				DEVELOPMENT_TEAM = XJU3RB4M72;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WDPhotoManager/WDPhotoManager-Prefix.pch";
 				INFOPLIST_FILE = WDPhotoManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,6 +487,7 @@
 				DEVELOPMENT_TEAM = XJU3RB4M72;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WDPhotoManager/WDPhotoManager-Prefix.pch";
 				INFOPLIST_FILE = WDPhotoManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
