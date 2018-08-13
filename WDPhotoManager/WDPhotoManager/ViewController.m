@@ -49,7 +49,7 @@
     imagePickerVc.showSelectedIndex = YES;
     imagePickerVc.isSelectOriginalPhoto = YES;
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        [WDAssetFileUtil saveAssets:assets completion:^(NSError * error) {
+        [WDAssetFileUtil saveAssets:assets thumbnailImgs:photos completion:^(NSError * error) {
             if (!error) {
                 UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"存储成功" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
                 [view show];

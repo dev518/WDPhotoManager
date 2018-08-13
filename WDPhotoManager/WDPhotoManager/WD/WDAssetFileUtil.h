@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #define IMGSUFFIX @".jpg"
 #define GIFSUFFIX @".gif"
@@ -21,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)defaultPath;
 + (NSString *)pathForAsset:(PHAsset *)asset;
 
-+ (void)saveAsset:(PHAsset *)asset filePath:(NSString *)filePath completion:(void (^)(NSError *))completion;
++ (void)saveAsset:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg filePath:(NSString *)filePath completion:(void (^)(NSError *))completion;
 
-+ (void)saveAssets:(NSArray <PHAsset *> *)assets completion:(void (^)(NSError *))completion;
++ (void)saveAssets:(NSArray <PHAsset *> *)assets  thumbnailImgs:(NSArray <UIImage *>*)thumbnailImgs completion:(void (^)(NSError *))completion;
 
 + (void)loadAssetWithFilePath:(NSString *)filePath completion:(void (^)(NSData *))completion;
 @end

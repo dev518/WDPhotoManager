@@ -85,36 +85,27 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     }
 }
 
-//{
-//    PHVideoRequestOptions *option = [[PHVideoRequestOptions alloc] init];
-//    option.networkAccessAllowed = YES;
-//    [[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
-//        NSURL *fileURL = [(AVURLAsset *)playerItem.asset URL];
-//        NSData *videoData = [NSData dataWithContentsOfURL:fileURL];
-//        [videoData writeToFile:filePath atomically:YES];
-//    }];
-//}
-
-+ (void)saveAssets:(NSArray <PHAsset *> *)assets completion:(void (^)(NSError *))completion{
++ (void)saveAssets:(NSArray <PHAsset *> *)assets  thumbnailImgs:(NSArray <UIImage *>*)thumbnailImgs completion:(void (^)(NSError *))completion{
     __block NSError *haserror = nil;
+    NSInteger index = 0;
     for (PHAsset *asset in assets) {
-        [WDAssetFileUtil saveAsset:asset filePath:[WDAssetFileUtil pathForAsset:asset] completion:^(NSError * error) {
+        [WDAssetFileUtil saveAsset:asset  thumbnailImg:[thumbnailImgs objectAtIndex:index] filePath:[WDAssetFileUtil pathForAsset:asset] completion:^(NSError * error) {
             if (!haserror && error) {
                 haserror = error;
             }
         }];
+        index++;
     }
     completion(haserror);
 }
 
 
-+ (void)saveAsset:(PHAsset *)asset filePath:(NSString *)filePath completion:(void (^)(NSError *))completion{
++ (void)saveAsset:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg filePath:(NSString *)filePath completion:(void (^)(NSError *))completion{
     BOOL isVideo = asset.mediaType == PHAssetMediaTypeVideo || asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive;
     
     if ([[asset valueForKey:@"filename"] containsString:@"GIF"]) {
-        [self nsdataForGifAsset:asset completion:^(NSData *data) {
-            [data writeToFile:filePath atomically:YES];
-            completion(nil);
+        [self saveGif:asset thumbnailImg:thumbnailImg filePath:filePath completion:^(NSError * error) {
+            completion(error);
         }];
     } else if (isVideo) {
         PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
@@ -195,4 +186,21 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     }];
     
 }
+
+#pragma mark - ------------- file save
+
++ (void)saveGif:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg filePath:(NSString *)filePath completion:(void (^)(NSError *))completion{
+    [self nsdataForGifAsset:asset completion:^(NSData *data) {
+        [data writeToFile:filePath atomically:YES];
+        completion(nil);
+    }];
+}
+     
++ (void)saveVideo:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg filePath:(NSString *)filePath completion:(void (^)(NSError *))completion{
+    [self nsdataForGifAsset:asset completion:^(NSData *data) {
+        [data writeToFile:filePath atomically:YES];
+        completion(nil);
+    }];
+}
+
 @end
