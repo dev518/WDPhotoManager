@@ -150,9 +150,7 @@ typedef void (^Result)(NSData *data,NSString *fileName);
         }];
     } else if (isVideo) {
         [self getVideoPathFromPHAsset:asset Complete:^(NSString * _Nonnull filePath, NSString * _Nonnull fileName) {
-            
         }];
-      
     }else{
         [self getImageFromPHAsset:asset Complete:^(NSData * _Nonnull fileData, NSString * _Nonnull fileName) {
             NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
@@ -181,7 +179,6 @@ typedef void (^Result)(NSData *data,NSString *fileName);
         PHAssetResourceRequestOptions *option = [[PHAssetResourceRequestOptions alloc]init];
         option.networkAccessAllowed = YES;
         if ([resource.uniformTypeIdentifier isEqualToString:@"com.compuserve.gif"]) {
-            NSLog(@"gif大爷");
             // 首先,需要获取沙盒路径
             NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
             // 拼接图片名为resource.originalFilename的路径

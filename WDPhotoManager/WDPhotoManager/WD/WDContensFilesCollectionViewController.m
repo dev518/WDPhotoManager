@@ -43,10 +43,25 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)initView{    
     self.collectionView.collectionViewLayout = [WDPreviewCollectionViewFlowLayout new];
-
+    [self initRightbarItem];
 }
 
 - (void)initRightbarItem{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"清除全部" style:UIBarButtonItemStylePlain target:self action:@selector(clearFile)];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)clearFile{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    [fileManager removeItemAtPath:[WDAssetFileUtil defaultPath] error:&error];
+    if (!error) {
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"清除成功" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [view show];
+    }
+}
+
+- (void)creatQuitRightbarItem{
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:UIBarButtonItemStylePlain target:self action:@selector(quitPreView)];
     self.navigationItem.rightBarButtonItem = item;
 }
@@ -56,6 +71,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if (view) {
         [view removeFromSuperview];
     }
+    [self initRightbarItem];
 }
 
 - (void)loadContents{
@@ -76,7 +92,6 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
@@ -95,7 +110,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSString *filePath = [NSString stringWithFormat:@"%@/%@",[WDAssetFileUtil defaultPath],self.contentFiles[indexPath.row]];
-    [self initRightbarItem];
+    [self creatQuitRightbarItem];
     [WDAssetFileUtil loadAssetWithFilePath:filePath completion:^(NSData * data) {
         if ([data isKindOfClass:[NSString class]]) {
             NSURL *videoURL = [NSURL fileURLWithPath:filePath];

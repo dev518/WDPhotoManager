@@ -37,6 +37,7 @@
 		9C4ABE50211C45810092AE18 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE40211C45800092AE18 /* TZLocationManager.m */; };
 		9C4ABE51211C45810092AE18 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */; };
 		9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */; };
+		9CDFEEF021241C4C009B25DE /* WDAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFEEEF21241C4C009B25DE /* WDAsset.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		9C4ABE42211C45800092AE18 /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
 		9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extention.h"; sourceTree = "<group>"; };
 		9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extention.m"; sourceTree = "<group>"; };
+		9CDFEEEE21241C4C009B25DE /* WDAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDAsset.h; sourceTree = "<group>"; };
+		9CDFEEEF21241C4C009B25DE /* WDAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDAsset.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 				9C4ABE10211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.m */,
 				9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */,
 				9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */,
+				9CDFEEEE21241C4C009B25DE /* WDAsset.h */,
+				9CDFEEEF21241C4C009B25DE /* WDAsset.m */,
 			);
 			path = WD;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				9C4ABE48211C45810092AE18 /* UIView+Layout.m in Sources */,
 				9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */,
 				9C4ABE47211C45810092AE18 /* NSBundle+TZImagePicker.m in Sources */,
+				9CDFEEF021241C4C009B25DE /* WDAsset.m in Sources */,
 				9C4ABE4E211C45810092AE18 /* TZPhotoPreviewCell.m in Sources */,
 				9C4ABE45211C45810092AE18 /* TZVideoPlayerController.m in Sources */,
 				9C4ABE1A211C410A0092AE18 /* WDContensFilesCollectionViewController.m in Sources */,
