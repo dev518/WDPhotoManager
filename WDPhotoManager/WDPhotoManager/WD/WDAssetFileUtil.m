@@ -226,10 +226,26 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     [imageData writeToFile:filePath atomically:YES];
 }
 
+
++ (void)saveAseetBasicInfo:(PHAsset *)asset{
+    NSString *directoryPath = [self directoryForAsset:asset];
+    //判断是否存在改文件夹，不存在创建
+    BOOL success = [[NSFileManager defaultManager] fileExistsAtPath:directoryPath];
+    NSError *error = nil;
+    if(!success) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
+    }
+    
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@",directoryPath,asset.fileNameWithOutSuffix,WDBaseInfoSuffix];
+    [asset.basicJsonObject writeToFile:filePath atomically:YES];
+   
+}
+
 #pragma mark - ------------- file save'
 
 + (void)saveImg:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg  completion:(void (^)(NSError *))completion{
     [self saveThumbnail:thumbnailImg ForAsset:asset];
+    [self saveAseetBasicInfo:asset];
     [self getImageFromPHAsset:asset Complete:^(NSData * _Nonnull fileData, NSString * _Nonnull fileName) {
         NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
         [fileData writeToFile:filePath atomically:YES];
@@ -240,7 +256,7 @@ typedef void (^Result)(NSData *data,NSString *fileName);
 + (void)saveGif:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg  completion:(void (^)(NSError *))completion{
     NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
     [self saveThumbnail:thumbnailImg ForAsset:asset];
-
+    [self saveAseetBasicInfo:asset];
     [self nsdataForGifAsset:asset completion:^(NSData *data) {
         [data writeToFile:filePath atomically:YES];
         completion(nil);
@@ -252,6 +268,7 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     
     if (asset.mediaType == PHAssetMediaTypeVideo || asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive) {
         [self saveThumbnail:thumbnailImg ForAsset:asset];
+        [self saveAseetBasicInfo:asset];
         PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
         options.version = PHImageRequestOptionsVersionCurrent;
         options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;

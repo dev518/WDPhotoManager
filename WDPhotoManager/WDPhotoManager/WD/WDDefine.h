@@ -20,6 +20,6 @@
 
 
 #define WDThumbSuffix @"_thumb.jpg"
-
+#define WDBaseInfoSuffix @"_basic.data"
 
 #endif /* WDDefine_h */

@@ -16,4 +16,15 @@
     NSString *name = components[0];
     return name;
 }
+
+- (NSDictionary *)basicJsonObject{
+    return @{@"mediaType":@(self.mediaType),
+             @"mediaSubtypes":@(self.mediaSubtypes),
+             @"pixelWidth":@(self.pixelWidth),
+             @"pixelHeight":@(self.pixelHeight),
+//             @"creationDate":@(self.creationDate),
+//             @"modificationDate":@(self.modificationDate),
+             @"duration":@(self.duration),
+             };
+}
 @end

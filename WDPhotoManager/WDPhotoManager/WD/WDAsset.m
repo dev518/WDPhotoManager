@@ -22,6 +22,13 @@
         for (NSString *file in files) {
             if ([file hasSuffix:WDThumbSuffix]) {
                 asset.thumbnailImage = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",fileDirectoty,file]];
+            }else if ([file hasSuffix:WDBaseInfoSuffix]){
+               NSDictionary *dict =  [NSDictionary dictionaryWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",fileDirectoty,file]];
+                if ([dict isKindOfClass:[NSDictionary class]]) {
+                    for (NSString *key in dict.allKeys) {
+                        [asset setValue:dict[key] forKey:key];
+                    }
+                }
             }else{
                 asset.filePath = [NSString stringWithFormat:@"%@/%@",fileDirectoty,file];
             }
