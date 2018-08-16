@@ -9,7 +9,7 @@
 #import "WDPreviewCollectionViewFlowLayout.h"
 #import "WDDefine.h"
 
-#define WDPreviewCollectionViewFlowLayoutLineSpacing 15
+#define WDPreviewCollectionViewFlowLayoutLineSpacing 5
 #define WDPreviewCollectionViewFlowLayoutInteritemSpacing 5
 
 @implementation WDPreviewCollectionViewFlowLayout
@@ -27,11 +27,11 @@
 }
 
 + (CGFloat)WDPreviewCollectionViewFlowLayoutWidth{
-    return CTScreenWidth/4;
+    return (CTScreenWidth - 2 * WDPreviewCollectionViewFlowLayoutLineSpacing - 3 * WDPreviewCollectionViewFlowLayoutInteritemSpacing)/4;
 }
 
 + (CGFloat)WDPreviewCollectionViewFlowLayoutHeight{
-    return CTScreenWidth/4;
+    return [[self class] WDPreviewCollectionViewFlowLayoutWidth];
 }
 
 

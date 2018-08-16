@@ -18,9 +18,8 @@
 @implementation WDContentsPreviewCollectionViewCell
 
 
-- (void)setData:(NSString *)filePath{
-    UIImage *img = [UIImage imageWithContentsOfFile:filePath];
-    [self.preImgView setImage:img];
+- (void)setData:(WDAsset *)asset{
+    [self.preImgView setImage:asset.thumbnailImage];
     
 }
 

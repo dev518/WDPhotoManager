@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WDAsset.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WDContentsPreviewCollectionViewCell : UICollectionViewCell
 
-- (void)setData:(NSString *)filePath;
+- (void)setData:(WDAsset *)asset;
 @end
 
 NS_ASSUME_NONNULL_END

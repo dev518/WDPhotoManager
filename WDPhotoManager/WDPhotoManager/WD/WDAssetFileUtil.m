@@ -11,6 +11,7 @@
 #import "UIImage+GIF.h"
 #import "NSString+AssetUtil.h"
 #import "TZImageManager.h"
+#import "PHAsset+AssetUtil.h"
 
 typedef void (^gifassetToDataBlock)(NSData *data);
 typedef void (^Result)(NSData *data,NSString *fileName);
@@ -50,6 +51,13 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     return resource;
 }
 
++ (NSString *)directoryForAsset:(PHAsset *)asset{
+    NSString *defaultPath = [self defaultPath];
+    
+    NSString *directory = [NSString stringWithFormat:@"%@/%@",defaultPath,asset.fileNameWithOutSuffix];
+    return directory;
+}
+
 + (NSString *)pathForAsset:(PHAsset *)asset{
     NSString *defaultPath = [self defaultPath];
     NSString *fileName = [asset valueForKey:@"filename"];
@@ -63,7 +71,7 @@ typedef void (^Result)(NSData *data,NSString *fileName);
         }
     }
     
-    NSString *imgPath = [NSString stringWithFormat:@"%@/%@",defaultPath,fileName];
+    NSString *imgPath = [NSString stringWithFormat:@"%@/%@/%@",defaultPath,asset.fileNameWithOutSuffix,fileName];
     return imgPath;
 }
 
@@ -149,13 +157,12 @@ typedef void (^Result)(NSData *data,NSString *fileName);
             completion(error);
         }];
     } else if (isVideo) {
-        [self getVideoPathFromPHAsset:asset Complete:^(NSString * _Nonnull filePath, NSString * _Nonnull fileName) {
+        [self saveVideo:asset thumbnailImg:thumbnailImg completion:^(NSError * error) {
+            
         }];
     }else{
-        [self getImageFromPHAsset:asset Complete:^(NSData * _Nonnull fileData, NSString * _Nonnull fileName) {
-            NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
-            [fileData writeToFile:filePath atomically:YES];
-            completion(nil);
+        [self saveImg:asset thumbnailImg:thumbnailImg completion:^(NSError *error) {
+            
         }];
 
     }
@@ -206,10 +213,34 @@ typedef void (^Result)(NSData *data,NSString *fileName);
     
 }
 
-#pragma mark - ------------- file save
++ (void)saveThumbnail:(UIImage *)thumbnailImg  ForAsset:(PHAsset *)asset{
+    NSString *directoryPath = [self directoryForAsset:asset];
+    //判断是否存在改文件夹，不存在创建
+    BOOL success = [[NSFileManager defaultManager] fileExistsAtPath:directoryPath];
+    NSError *error = nil;
+    if(!success) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
+    }
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@",directoryPath,asset.fileNameWithOutSuffix,WDThumbSuffix];
+    NSData *imageData = UIImageJPEGRepresentation(thumbnailImg, 1);
+    [imageData writeToFile:filePath atomically:YES];
+}
+
+#pragma mark - ------------- file save'
+
++ (void)saveImg:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg  completion:(void (^)(NSError *))completion{
+    [self saveThumbnail:thumbnailImg ForAsset:asset];
+    [self getImageFromPHAsset:asset Complete:^(NSData * _Nonnull fileData, NSString * _Nonnull fileName) {
+        NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
+        [fileData writeToFile:filePath atomically:YES];
+        completion(nil);
+    }];
+}
 
 + (void)saveGif:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg  completion:(void (^)(NSError *))completion{
     NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
+    [self saveThumbnail:thumbnailImg ForAsset:asset];
+
     [self nsdataForGifAsset:asset completion:^(NSData *data) {
         [data writeToFile:filePath atomically:YES];
         completion(nil);
@@ -217,11 +248,27 @@ typedef void (^Result)(NSData *data,NSString *fileName);
 }
      
 + (void)saveVideo:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg completion:(void (^)(NSError *))completion{
-    NSString *filePath = [WDAssetFileUtil pathForAsset:asset];
-    [self nsdataForGifAsset:asset completion:^(NSData *data) {
-        [data writeToFile:filePath atomically:YES];
-        completion(nil);
-    }];
+    PHAssetResource *resource = [self getVideoResource:asset];
+    
+    if (asset.mediaType == PHAssetMediaTypeVideo || asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive) {
+        [self saveThumbnail:thumbnailImg ForAsset:asset];
+        PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+        options.version = PHImageRequestOptionsVersionCurrent;
+        options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        
+        NSString *PATH_MOVIE_FILE = [WDAssetFileUtil pathForAsset:asset];
+        [[NSFileManager defaultManager] removeItemAtPath:PATH_MOVIE_FILE error:nil];
+        [[PHAssetResourceManager defaultManager] writeDataForAssetResource:resource
+                                                                    toFile:[NSURL fileURLWithPath:PATH_MOVIE_FILE]
+                                                                   options:nil
+                                                         completionHandler:^(NSError * _Nullable error) {
+                                                             if (error) {
+                                                                 completion(error);
+                                                             } else {
+                                                                 completion(nil);
+                                                             }
+                                                         }];
+    }
 }
 
 @end

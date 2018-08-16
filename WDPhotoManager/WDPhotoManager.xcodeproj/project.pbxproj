@@ -37,6 +37,7 @@
 		9C4ABE50211C45810092AE18 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE40211C45800092AE18 /* TZLocationManager.m */; };
 		9C4ABE51211C45810092AE18 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */; };
 		9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */; };
+		9CBFDA6D21254578003FCADB /* PHAsset+AssetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */; };
 		9CDFEEF021241C4C009B25DE /* WDAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFEEEF21241C4C009B25DE /* WDAsset.m */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,8 @@
 		9C4ABE42211C45800092AE18 /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
 		9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extention.h"; sourceTree = "<group>"; };
 		9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extention.m"; sourceTree = "<group>"; };
+		9CBFDA6B21254578003FCADB /* PHAsset+AssetUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PHAsset+AssetUtil.h"; sourceTree = "<group>"; };
+		9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+AssetUtil.m"; sourceTree = "<group>"; };
 		9CDFEEEE21241C4C009B25DE /* WDAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDAsset.h; sourceTree = "<group>"; };
 		9CDFEEEF21241C4C009B25DE /* WDAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDAsset.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +177,8 @@
 				9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */,
 				9CDFEEEE21241C4C009B25DE /* WDAsset.h */,
 				9CDFEEEF21241C4C009B25DE /* WDAsset.m */,
+				9CBFDA6B21254578003FCADB /* PHAsset+AssetUtil.h */,
+				9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */,
 			);
 			path = WD;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				9C4ABE23211C437C0092AE18 /* NSString+AssetUtil.m in Sources */,
 				9C4ABDF4211C3EF60092AE18 /* AppDelegate.m in Sources */,
 				9C4ABE46211C45810092AE18 /* TZAssetModel.m in Sources */,
+				9CBFDA6D21254578003FCADB /* PHAsset+AssetUtil.m in Sources */,
 				9C4ABE4D211C45810092AE18 /* TZPhotoPickerController.m in Sources */,
 				9C4ABE51211C45810092AE18 /* TZGifPhotoPreviewController.m in Sources */,
 				9C4ABE20211C42BA0092AE18 /* UIImage+GIF.m in Sources */,

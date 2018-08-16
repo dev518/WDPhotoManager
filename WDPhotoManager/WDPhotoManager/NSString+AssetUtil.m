@@ -12,6 +12,6 @@
 
 - (BOOL)isVideoFilePath{
     NSString *lowerStr = [self lowercaseString];
-    return ([lowerStr containsString:@".mov"] || [lowerStr containsString:@".mp4"] || [lowerStr containsString:@".heic"] );
+    return ([lowerStr containsString:@".mov"] || [lowerStr containsString:@".mp4"] );
 }
 @end

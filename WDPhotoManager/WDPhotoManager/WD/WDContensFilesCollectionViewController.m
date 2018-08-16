@@ -12,6 +12,7 @@
 #import <AVKit/AVKit.h>
 #import "WDContentsPreviewCollectionViewCell.h"
 #import "WDPreviewCollectionViewFlowLayout.h"
+#import "WDAsset.h"
 
 
 @interface WDContensFilesCollectionViewController ()
@@ -58,6 +59,8 @@ static NSString * const reuseIdentifier = @"Cell";
     if (!error) {
         UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"清除成功" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [view show];
+        [self.contentFiles removeAllObjects];
+        [self.collectionView reloadData];
     }
 }
 
@@ -84,11 +87,17 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if(success) {
         NSError *error;
+        self.contentFiles = [NSMutableArray new];
         NSArray *files = [fileManager contentsOfDirectoryAtPath:path error:&error];
-        self.contentFiles = [NSMutableArray arrayWithArray:files];
+        for (NSString *directoryName in files) {
+            WDAsset *asset = [WDAsset initWithFileDirectoty:[NSString stringWithFormat:@"%@/%@",path,directoryName]];
+            [self.contentFiles addObject:asset];
+        }
         [self.collectionView reloadData];
     }
 }
+
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -103,17 +112,16 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WDContentsPreviewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@",[WDAssetFileUtil defaultPath],self.contentFiles[indexPath.row]];
-    [cell setData:filePath];
+    [cell setData:self.contentFiles[indexPath.row]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@",[WDAssetFileUtil defaultPath],self.contentFiles[indexPath.row]];
+    WDAsset *asset = self.contentFiles[indexPath.row];
     [self creatQuitRightbarItem];
-    [WDAssetFileUtil loadAssetWithFilePath:filePath completion:^(NSData * data) {
+    [WDAssetFileUtil loadAssetWithFilePath:asset.filePath completion:^(NSData * data) {
         if ([data isKindOfClass:[NSString class]]) {
-            NSURL *videoURL = [NSURL fileURLWithPath:filePath];
+            NSURL *videoURL = [NSURL fileURLWithPath:asset.filePath];
             AVPlayer *player = [AVPlayer playerWithURL:videoURL];
             AVPlayerViewController *vc = [AVPlayerViewController new];
             vc.player = player;
