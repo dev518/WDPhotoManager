@@ -26,11 +26,11 @@ typedef void(^ResultPath)(NSString *filePath, NSString *fileName);
 + (NSString *)defaultPath;
 + (NSString *)pathForAsset:(PHAsset *)asset;
 
-+ (void)saveAsset:(PHAsset *)asset  thumbnailImg:(UIImage *)thumbnailImg filePath:(NSString *)filePath completion:(void (^)(NSError *))completion;
 
 + (void)saveAssets:(NSArray <PHAsset *> *)assets  thumbnailImgs:(NSArray <UIImage *>*)thumbnailImgs completion:(void (^)(NSError *))completion;
 
 + (void)loadAssetWithFilePath:(NSString *)filePath completion:(void (^)(NSData *))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

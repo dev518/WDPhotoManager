@@ -36,10 +36,39 @@
 		9C4ABE4F211C45810092AE18 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE3F211C45800092AE18 /* TZImagePickerController.m */; };
 		9C4ABE50211C45810092AE18 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE40211C45800092AE18 /* TZLocationManager.m */; };
 		9C4ABE51211C45810092AE18 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */; };
+		9C53152C212AC34A0096FDB2 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C53152B212AC34A0096FDB2 /* ActionViewController.m */; };
+		9C53152F212AC34A0096FDB2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C53152D212AC34A0096FDB2 /* MainInterface.storyboard */; };
+		9C531533212AC34B0096FDB2 /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C531528212AC34A0096FDB2 /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9C531537212AC9730096FDB2 /* WDAssetFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ABE0E211C410A0092AE18 /* WDAssetFileUtil.m */; };
 		9C8CD754211D9BA800EBA624 /* UINavigationController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */; };
 		9CBFDA6D21254578003FCADB /* PHAsset+AssetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */; };
 		9CDFEEF021241C4C009B25DE /* WDAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFEEEF21241C4C009B25DE /* WDAsset.m */; };
+		9CFDE479212E8F27001FE4B5 /* WDAssetFileUtil+ActionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDE478212E8F26001FE4B5 /* WDAssetFileUtil+ActionExtension.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C531531212AC34B0096FDB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C4ABDE7211C3EF60092AE18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C531527212AC34A0096FDB2;
+			remoteInfo = share;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C53150E212ABB070096FDB2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9C531533212AC34B0096FDB2 /* share.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9C4ABDEF211C3EF60092AE18 /* WDPhotoManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WDPhotoManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,16 +129,31 @@
 		9C4ABE40211C45800092AE18 /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
 		9C4ABE41211C45800092AE18 /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
 		9C4ABE42211C45800092AE18 /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
+		9C531523212ABF4A0096FDB2 /* WDPhotoManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WDPhotoManager.entitlements; sourceTree = "<group>"; };
+		9C531528212AC34A0096FDB2 /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C53152A212AC34A0096FDB2 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		9C53152B212AC34A0096FDB2 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		9C53152E212AC34A0096FDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9C531530212AC34B0096FDB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extention.h"; sourceTree = "<group>"; };
 		9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extention.m"; sourceTree = "<group>"; };
 		9CBFDA6B21254578003FCADB /* PHAsset+AssetUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PHAsset+AssetUtil.h"; sourceTree = "<group>"; };
 		9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+AssetUtil.m"; sourceTree = "<group>"; };
 		9CDFEEEE21241C4C009B25DE /* WDAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDAsset.h; sourceTree = "<group>"; };
 		9CDFEEEF21241C4C009B25DE /* WDAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDAsset.m; sourceTree = "<group>"; };
+		9CFDE477212E8F26001FE4B5 /* WDAssetFileUtil+ActionExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WDAssetFileUtil+ActionExtension.h"; sourceTree = "<group>"; };
+		9CFDE478212E8F26001FE4B5 /* WDAssetFileUtil+ActionExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WDAssetFileUtil+ActionExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9C4ABDEC211C3EF60092AE18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C531525212AC34A0096FDB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -123,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4ABDF1211C3EF60092AE18 /* WDPhotoManager */,
+				9C531529212AC34A0096FDB2 /* share */,
 				9C4ABDF0211C3EF60092AE18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4ABDEF211C3EF60092AE18 /* WDPhotoManager.app */,
+				9C531528212AC34A0096FDB2 /* share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +184,7 @@
 		9C4ABDF1211C3EF60092AE18 /* WDPhotoManager */ = {
 			isa = PBXGroup;
 			children = (
+				9C531523212ABF4A0096FDB2 /* WDPhotoManager.entitlements */,
 				9C4ABE24211C45800092AE18 /* TZImagePickerController */,
 				9C4ABE08211C410A0092AE18 /* WD */,
 				9C4ABE1D211C42BA0092AE18 /* SDWebImage */,
@@ -160,8 +207,16 @@
 		9C4ABE08211C410A0092AE18 /* WD */ = {
 			isa = PBXGroup;
 			children = (
+				9CBFDA6B21254578003FCADB /* PHAsset+AssetUtil.h */,
+				9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */,
+				9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */,
+				9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */,
+				9CDFEEEE21241C4C009B25DE /* WDAsset.h */,
+				9CDFEEEF21241C4C009B25DE /* WDAsset.m */,
 				9C4ABE14211C410A0092AE18 /* WDAssetFileUtil.h */,
 				9C4ABE0E211C410A0092AE18 /* WDAssetFileUtil.m */,
+				9CFDE477212E8F26001FE4B5 /* WDAssetFileUtil+ActionExtension.h */,
+				9CFDE478212E8F26001FE4B5 /* WDAssetFileUtil+ActionExtension.m */,
 				9C4ABE0C211C410A0092AE18 /* WDContensFilesCollectionViewController.h */,
 				9C4ABE11211C410A0092AE18 /* WDContensFilesCollectionViewController.m */,
 				9C4ABE13211C410A0092AE18 /* WDContenstsFileTableViewController.h */,
@@ -173,12 +228,6 @@
 				9C4ABE0F211C410A0092AE18 /* WDPasswordView.m */,
 				9C4ABE09211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.h */,
 				9C4ABE10211C410A0092AE18 /* WDPreviewCollectionViewFlowLayout.m */,
-				9C8CD752211D9BA800EBA624 /* UINavigationController+Extention.h */,
-				9C8CD753211D9BA800EBA624 /* UINavigationController+Extention.m */,
-				9CDFEEEE21241C4C009B25DE /* WDAsset.h */,
-				9CDFEEEF21241C4C009B25DE /* WDAsset.m */,
-				9CBFDA6B21254578003FCADB /* PHAsset+AssetUtil.h */,
-				9CBFDA6C21254578003FCADB /* PHAsset+AssetUtil.m */,
 			);
 			path = WD;
 			sourceTree = "<group>";
@@ -229,6 +278,17 @@
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
+		9C531529212AC34A0096FDB2 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				9C53152A212AC34A0096FDB2 /* ActionViewController.h */,
+				9C53152B212AC34A0096FDB2 /* ActionViewController.m */,
+				9C53152D212AC34A0096FDB2 /* MainInterface.storyboard */,
+				9C531530212AC34B0096FDB2 /* Info.plist */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,15 +299,34 @@
 				9C4ABDEB211C3EF60092AE18 /* Sources */,
 				9C4ABDEC211C3EF60092AE18 /* Frameworks */,
 				9C4ABDED211C3EF60092AE18 /* Resources */,
+				9C53150E212ABB070096FDB2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9C531532212AC34B0096FDB2 /* PBXTargetDependency */,
 			);
 			name = WDPhotoManager;
 			productName = WDPhotoManager;
 			productReference = 9C4ABDEF211C3EF60092AE18 /* WDPhotoManager.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9C531527212AC34A0096FDB2 /* share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C531534212AC34B0096FDB2 /* Build configuration list for PBXNativeTarget "share" */;
+			buildPhases = (
+				9C531524212AC34A0096FDB2 /* Sources */,
+				9C531525212AC34A0096FDB2 /* Frameworks */,
+				9C531526212AC34A0096FDB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = share;
+			productName = share;
+			productReference = 9C531528212AC34A0096FDB2 /* share.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -259,6 +338,14 @@
 				ORGANIZATIONNAME = wudi;
 				TargetAttributes = {
 					9C4ABDEE211C3EF60092AE18 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					9C531527212AC34A0096FDB2 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -282,6 +369,7 @@
 			projectRoot = "";
 			targets = (
 				9C4ABDEE211C3EF60092AE18 /* WDPhotoManager */,
+				9C531527212AC34A0096FDB2 /* share */,
 			);
 		};
 /* End PBXProject section */
@@ -298,6 +386,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C531526212AC34A0096FDB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C53152F212AC34A0096FDB2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -309,6 +405,7 @@
 				9C4ABDF7211C3EF60092AE18 /* ViewController.m in Sources */,
 				9C4ABE4B211C45810092AE18 /* TZProgressView.m in Sources */,
 				9C4ABE4C211C45810092AE18 /* TZImageManager.m in Sources */,
+				9CFDE479212E8F27001FE4B5 /* WDAssetFileUtil+ActionExtension.m in Sources */,
 				9C4ABE02211C3EF80092AE18 /* main.m in Sources */,
 				9C4ABE43211C45810092AE18 /* TZImageCropManager.m in Sources */,
 				9C4ABE18211C410A0092AE18 /* WDPasswordView.m in Sources */,
@@ -336,7 +433,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C531524212AC34A0096FDB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C531537212AC9730096FDB2 /* WDAssetFileUtil.m in Sources */,
+				9C53152C212AC34A0096FDB2 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C531532212AC34B0096FDB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C531527212AC34A0096FDB2 /* share */;
+			targetProxy = 9C531531212AC34B0096FDB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9C4ABDF8211C3EF60092AE18 /* Main.storyboard */ = {
@@ -353,6 +467,14 @@
 				9C4ABDFE211C3EF80092AE18 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9C53152D212AC34A0096FDB2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C53152E212AC34A0096FDB2 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -512,6 +634,44 @@
 			};
 			name = Release;
 		};
+		9C531535212AC34B0096FDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XJU3RB4M72;
+				INFOPLIST_FILE = share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wudi.WDPhotoManager.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C531536212AC34B0096FDB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XJU3RB4M72;
+				INFOPLIST_FILE = share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wudi.WDPhotoManager.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -529,6 +689,15 @@
 			buildConfigurations = (
 				9C4ABE06211C3EF80092AE18 /* Debug */,
 				9C4ABE07211C3EF80092AE18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C531534212AC34B0096FDB2 /* Build configuration list for PBXNativeTarget "share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C531535212AC34B0096FDB2 /* Debug */,
+				9C531536212AC34B0096FDB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

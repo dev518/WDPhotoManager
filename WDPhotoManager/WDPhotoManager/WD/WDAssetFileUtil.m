@@ -12,6 +12,7 @@
 #import "NSString+AssetUtil.h"
 #import "TZImageManager.h"
 #import "PHAsset+AssetUtil.h"
+#import "WDDefine.h"
 
 typedef void (^gifassetToDataBlock)(NSData *data);
 typedef void (^Result)(NSData *data,NSString *fileName);
@@ -133,6 +134,7 @@ typedef void (^Result)(NSData *data,NSString *fileName);
         result(nil, nil);
     }
 }
+
 
 + (void)saveAssets:(NSArray <PHAsset *> *)assets  thumbnailImgs:(NSArray <UIImage *>*)thumbnailImgs completion:(void (^)(NSError *))completion{
     __block NSError *haserror = nil;
